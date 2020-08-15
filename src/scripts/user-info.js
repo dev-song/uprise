@@ -1,4 +1,4 @@
-const DOM = {
+const userInfoDOM = {
   name: document.querySelector('.user-info__name'),
   input: document.querySelector('.user-info__input'),
   change: document.querySelector('.user-info__change-button'),
@@ -8,14 +8,14 @@ const DOM = {
 let username = 'my friend';
 const USERNAME_LS = 'username';
 
-function getUsername() {
+function loadUsername() {
   const savedName = localStorage.getItem(USERNAME_LS);
   if (!savedName) return;
   username = savedName;
 }
 
 function printUsername() {
-  DOM.name.textContent = username;
+  userInfoDOM.name.textContent = username;
 }
 
 function saveUsername(text) {
@@ -23,9 +23,9 @@ function saveUsername(text) {
 }
 
 function changeUsername() {
-  DOM.name.classList.add('hidden');
-  DOM.input.classList.remove('hidden');
-  DOM.confirm.classList.remove('hidden');
+  userInfoDOM.name.classList.add('hidden');
+  userInfoDOM.input.classList.remove('hidden');
+  userInfoDOM.confirm.classList.remove('hidden');
 }
 
 function confirmUsernameChange() {
@@ -33,18 +33,18 @@ function confirmUsernameChange() {
   username = newName;
   printUsername();
   saveUsername(newName);
-  DOM.input.value = '';
-  DOM.input.classList.add('hidden');
-  DOM.confirm.classList.add('hidden');
-  DOM.name.classList.remove('hidden');
+  userInfoDOM.input.value = '';
+  userInfoDOM.input.classList.add('hidden');
+  userInfoDOM.confirm.classList.add('hidden');
+  userInfoDOM.name.classList.remove('hidden');
 }
 
-function init() {
-  getUsername();
+function initUserInfo() {
+  loadUsername();
   printUsername();
 
-  DOM.change.addEventListener('click', changeUsername);
-  DOM.confirm.addEventListener('click', confirmUsernameChange);
+  userInfoDOM.change.addEventListener('click', changeUsername);
+  userInfoDOM.confirm.addEventListener('click', confirmUsernameChange);
 }
 
-init();
+initUserInfo();
