@@ -20,7 +20,7 @@ function getCurrentTime() {
 }
 
 function printClock() {
-  const repeat = setInterval(() => {
+  return setInterval(() => {
     const time = getCurrentTime();
     const dayText = `${time.year}년 ${time.month}월 ${time.date}일 ${dayNames[language][time.day]}`;
     const timeText = `${time.hour}:${time.minute < 10 ? `0${time.minute}` : time.minute}:${time.second < 10 ? `0${time.second}` : time.second}`;
