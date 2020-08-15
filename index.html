@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
     <script defer src="src/scripts/clock.js"></script>
     <script defer src="src/scripts/user-info.js"></script>
+    <script defer src="src/scripts/todo-list.js"></script>
   </head>
   <body>
     <header>
@@ -34,9 +35,17 @@
         <button class="user-info__delete-button">삭제</button>
       </section>
       <section class="todo-list">
-        <div class="todo-list__today"></div>
-        <div class="todo-list__this-week"></div>
-        <div class="todo-list__this month"></div>
+        <form action="" class="todo-list__form">
+          <input
+            type="text"
+            placeholder="할 일을 입력하세요"
+            class="todo-list__input"
+          />
+          <input type="submit" value="추가" class="todo-list__submit" />
+        </form>
+        <div class="todo-list__todo"></div>
+        <div class="todo-list__doing"></div>
+        <div class="todo-list__done"></div>
       </section>
     </main>
   </body>
