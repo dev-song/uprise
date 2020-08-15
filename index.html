@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uprise</title>
+
+    <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
+    <script defer src="src/scripts/clock.js"></script>
+    <script defer src="src/scripts/user-info.js"></script>
   </head>
   <body>
     <header>
@@ -18,8 +22,16 @@
         <div class="clock__time"></div>
       </section>
       <section class="user-info">
-        <div class="user-info__greetings"></div>
-        <div class="user-info__name"></div>
+        <span class="user-info__greetings">Good Morning,</span>
+        <span class="user-info__name"></span>
+        <input
+          type="text"
+          class="user-info__input hidden"
+          placeholder="당신의 이름을 입력하세요"
+        />
+        <button class="user-info__change-button">변경</button>
+        <button class="user-info__confirm-button hidden">확인</button>
+        <button class="user-info__delete-button">삭제</button>
       </section>
       <section class="todo-list">
         <div class="todo-list__today"></div>
