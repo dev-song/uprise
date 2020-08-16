@@ -1,4 +1,7 @@
-const clock = document.querySelector('.js-clock');
+const clockDOM = {
+  day: document.querySelector('.clock__day'),
+  time: document.querySelector('.clock__time')
+}
 const dayNames = {
   ko: ['일', '월', '화', '수', '목', '금', '토'],
   en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -19,11 +22,16 @@ function getCurrentTime() {
   return time;
 }
 
-function printClock() {
+function activateClock() {
   return setInterval(() => {
     const time = getCurrentTime();
-    const dayText = `${time.year}년 ${time.month}월 ${time.date}일 ${dayNames[language][time.day]}`;
-    const timeText = `${time.hour}:${time.minute < 10 ? `0${time.minute}` : time.minute}:${time.second < 10 ? `0${time.second}` : time.second}`;
-    console.log(dayText, timeText);
+    clockDOM.day.textContent = `${time.year}년 ${time.month}월 ${time.date}일 ${dayNames[language][time.day]}`;
+    clockDOM.time.textContent = `${time.hour}:${time.minute < 10 ? `0${time.minute}` : time.minute}:${time.second < 10 ? `0${time.second}` : time.second}`;
   }, 1000);
 }
+
+function initClock() {
+  activateClock();
+}
+
+initClock();
