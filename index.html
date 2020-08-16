@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uprise</title>
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="src/styles/main.css" />
+    <script defer src="src/scripts/language.js"></script>
     <script defer src="src/scripts/clock.js"></script>
     <script defer src="src/scripts/user-info.js"></script>
     <script defer src="src/scripts/todo-list.js"></script>
@@ -15,8 +20,8 @@
   <body>
     <header>
       <ul class="language-select">
-        <li class="language-select__ko">한국어</li>
-        <li class="language-select__en">English</li>
+        <li class="language-select__ko active" data-lang="ko">한국어</li>
+        <li class="language-select__en" data-lang="en">English</li>
       </ul>
     </header>
     <main>
@@ -25,20 +30,20 @@
         <p class="clock__time"></p>
       </section>
       <section class="weather">
-        <span class="weather__city"></span>
         <span class="weather__temperature"></span>
+        <span class="weather__city"></span>
       </section>
       <section class="user-info">
-        <span class="user-info__greetings">Good Morning,</span>
+        <span class="user-info__greetings">반가워요,</span>
         <span class="user-info__name"></span>
         <input
           type="text"
           class="user-info__input hidden"
           placeholder="당신의 이름을 입력하세요"
         />
-        <button class="user-info__change-button">변경</button>
-        <button class="user-info__confirm-button hidden">확인</button>
-        <button class="user-info__delete-button">삭제</button>
+        <button class="user-info__change-button">🔄</button>
+        <button class="user-info__confirm-button hidden">✔</button>
+        <button class="user-info__delete-button">❌</button>
       </section>
       <section class="todo-list">
         <form action="" class="todo-list__form">
@@ -47,16 +52,16 @@
             placeholder="할 일을 입력하세요"
             class="todo-list__input"
           />
-          <input type="submit" value="추가" class="todo-list__submit" />
+          <input type="submit" value="➕" class="todo-list__submit" />
         </form>
         <div class="todo-list__todo">
-          <p class="todo-list__subtitle">TODO</p>
+          <h3 class="todo-list__subtitle">예정</h3>
         </div>
         <div class="todo-list__doing">
-          <p class="todo-list__subtitle">DOING</p>
+          <h3 class="todo-list__subtitle">진행 중</h3>
         </div>
         <div class="todo-list__done">
-          <p class="todo-list__subtitle">DONE</p>
+          <h3 class="todo-list__subtitle">완료</h3>
         </div>
       </section>
     </main>
