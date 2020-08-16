@@ -5,7 +5,8 @@ const userInfoDOM = {
   confirm: document.querySelector('.user-info__confirm-button'),
   delete: document.querySelector('.user-info__delete-button')
 }
-let username = 'my friend';
+let username = language === 'ko' ? '친구' : 'my friend';
+let isUsernameChanging = false;
 const USERNAME_LS = 'username';
 
 function loadUsername() {
@@ -23,20 +24,44 @@ function saveUsername(text) {
 }
 
 function changeUsername() {
+  isUsernameChanging = true;
   userInfoDOM.name.classList.add('hidden');
+  userInfoDOM.change.classList.add('hidden');
   userInfoDOM.input.classList.remove('hidden');
   userInfoDOM.confirm.classList.remove('hidden');
 }
 
 function confirmUsernameChange() {
   const newName = userInfoDOM.input.value;
+  if (!newName) return;
+
+  isUsernameChanging = false;
   username = newName;
-  printUsername();
   saveUsername(newName);
+  printUsername();
   userInfoDOM.input.value = '';
   userInfoDOM.input.classList.add('hidden');
   userInfoDOM.confirm.classList.add('hidden');
   userInfoDOM.name.classList.remove('hidden');
+  userInfoDOM.change.classList.remove('hidden');
+}
+
+function cancelUsernameChange() {
+  userInfoDOM.input.value = '';
+  userInfoDOM.input.classList.add('hidden');
+  userInfoDOM.confirm.classList.add('hidden');
+  userInfoDOM.name.classList.remove('hidden');
+  userInfoDOM.change.classList.remove('hidden');
+}
+
+function deleteUsername() {
+  if (isUsernameChanging) {
+    cancelUsernameChange();
+  }
+
+  username = language === 'ko' ? '친구' : 'my friend';
+  localStorage.setItem(USERNAME_LS, '');
+  printUsername();
 }
 
 function initUserInfo() {
@@ -45,6 +70,7 @@ function initUserInfo() {
 
   userInfoDOM.change.addEventListener('click', changeUsername);
   userInfoDOM.confirm.addEventListener('click', confirmUsernameChange);
+  userInfoDOM.delete.addEventListener('click', deleteUsername);
 }
 
 initUserInfo();
