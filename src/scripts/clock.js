@@ -6,7 +6,6 @@ const dayNames = {
   ko: ['일', '월', '화', '수', '목', '금', '토'],
   en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 };
-let language = 'ko';
 
 function getCurrentTime() {
   const now = new Date();
@@ -25,7 +24,10 @@ function getCurrentTime() {
 function activateClock() {
   return setInterval(() => {
     const time = getCurrentTime();
-    clockDOM.day.textContent = `${time.year}년 ${time.month}월 ${time.date}일 ${dayNames[language][time.day]}`;
+    const englishDayText = `${time.month}/${time.date}/${time.year} ${dayNames.en[time.day]}`,
+      koreanDayText = `${time.year}/${time.month}/${time.date} ${dayNames.ko[time.day]}`;
+
+    clockDOM.day.textContent = language === 'ko' ? koreanDayText : englishDayText;
     clockDOM.time.textContent = `${time.hour}:${time.minute < 10 ? `0${time.minute}` : time.minute}:${time.second < 10 ? `0${time.second}` : time.second}`;
   }, 1000);
 }
