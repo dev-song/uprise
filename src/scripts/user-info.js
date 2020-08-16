@@ -29,7 +29,7 @@ function changeUsername() {
 }
 
 function confirmUsernameChange() {
-  const newName = DOM.input.value;
+  const newName = userInfoDOM.input.value;
   username = newName;
   printUsername();
   saveUsername(newName);
