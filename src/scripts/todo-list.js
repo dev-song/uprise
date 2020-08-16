@@ -51,15 +51,15 @@ function renderTodo() {
 
     const leftButton = document.createElement('button');
     leftButton.classList.add(todoListClassNames.leftButton);
-    leftButton.textContent = '<';
+    leftButton.textContent = '⬅';
 
     const rightButton = document.createElement('button');
     rightButton.classList.add(todoListClassNames.rightButton);
-    rightButton.textContent = '>';
+    rightButton.textContent = '➡';
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add(todoListClassNames.deleteButton);
-    deleteButton.textContent = 'X';
+    deleteButton.textContent = '❌';
 
     div.appendChild(leftButton);
     div.appendChild(rightButton);
@@ -123,18 +123,23 @@ function handleButtonClick(event) {
   const todoId = event.target.parentNode.id;
   const originalType = event.target.parentNode.dataset.type;
   let newType;
+  let isChanged;
   if (event.target.classList.contains(todoListClassNames.leftButton)) {
     newType = originalType === TYPE_DOING ? TYPE_TODO : TYPE_DOING;
   } else if (event.target.classList.contains(todoListClassNames.rightButton)) {
     newType = originalType === TYPE_TODO ? TYPE_DOING : TYPE_DONE;
   } else if (event.target.classList.contains(todoListClassNames.deleteButton)) {
     deleteTodo(todoId);
+    isChanged = true;
   }
 
   if (newType) {
     changeTodoType(todoId, newType);
+    isChanged = true;
   }
-  renderTodo();
+  if (isChanged) {
+    renderTodo();
+  }
 }
 
 function initTodo() {
