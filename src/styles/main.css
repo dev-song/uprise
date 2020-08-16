@@ -1,0 +1,244 @@
+/********************
+****** General
+********************/
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+
+  font-family: 'Gamja Flower', cursive;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1.5rem;
+}
+
+main {
+  padding-bottom: 4rem;
+
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* language */
+header {
+  padding: 1rem;
+}
+
+.language-select {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.language-select > li {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+  cursor: pointer;
+
+  list-style: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.language-select > .active,
+.language-select > li:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* clock */
+.clock {
+  margin: 1rem auto;
+  padding: 0.5rem;
+  box-shadow: 0 0.2rem 1rem -0.2rem black;
+
+  background: rgba(205, 92, 92, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.clock > p {
+  margin: 0;
+}
+
+.clock > p:first-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.clock__time {
+  font-size: 3rem;
+}
+
+/* weather */
+.weather {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0.2rem 1rem -0.2rem black;
+
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.weather__temperature::after {
+  content: ' ℃';
+}
+
+.weather__city {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.weather__city::before {
+  content: '@ ';
+  font-weight: normal;
+}
+
+/* user information */
+.user-info {
+  position: relative;
+
+  display: inline-block;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-shadow: 0 0.2rem 1rem -0.2rem black;
+
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 2.5rem;
+}
+
+.user-info__name {
+  margin-right: 3rem;
+}
+
+.user-info__input {
+  all: unset;
+  width: 16rem;
+  height: 2rem;
+  margin-right: 3rem;
+  padding: 0.5rem 0.5rem 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.user-info__input::placeholder {
+  font-size: 1.5rem;
+}
+
+.user-info__input.hidden {
+  display: none;
+}
+
+.user-info > button {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+
+  width: 2.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.user-info__change-button,
+.user-info__confirm-button {
+  transform: translateY(-100%);
+}
+
+/* todo list */
+.todo-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 90%;
+  max-width: 1440px;
+  margin: 1rem auto;
+  box-shadow: 0 0.2rem 1rem -0.2rem black;
+
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.todo-list__form {
+  grid-column: 1 / span 3;
+  justify-items: center;
+
+  margin: 0;
+  padding: 1rem;
+
+  background: rgba(205, 92, 92, 0.8);
+}
+
+.todo-list__input {
+  all: unset;
+  width: 30%;
+  min-width: 20rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.5rem 0.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+  text-align: left;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.todo-list__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.todo-list__submit {
+  width: 2.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.todo-list__todo,
+.todo-list__done {
+  padding: 1rem 2rem;
+}
+
+.todo-list__doing {
+  padding: 1rem 0;
+}
+
+.todo-list__subtitle {
+  margin: 0 0 1rem;
+
+  font-size: 2rem;
+}
+
+.todo-list__item {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0.5rem -0.2rem black;
+
+  background: rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+.todo-list__item > button {
+  position: absolute;
+  top: 50%;
+  width: 2.5rem;
+  padding: 0.2rem 0.5rem;
+
+  transform: translateY(-50%);
+}
+
+.todo-list__change-left {
+  right: 6rem;
+}
+
+.todo-list__change-right,
+.todo-list__done .todo-list__change-left {
+  right: 3.5rem;
+}
+
+.todo-list__delete {
+  right: 0.5rem;
+}
