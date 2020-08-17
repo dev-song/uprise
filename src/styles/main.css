@@ -48,6 +48,14 @@ header {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.language-select__ko::after {
+  content: '국어';
+}
+
+.language-select__en::after {
+  content: 'glish';
+}
+
 .language-select > .active,
 .language-select > li:hover {
   background: rgba(255, 255, 255, 0.8);
@@ -117,7 +125,7 @@ header {
 }
 
 .user-info__name {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .user-info__input {
