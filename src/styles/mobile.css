@@ -3,6 +3,10 @@
     width: 60%;
   }
 
+  .user-info__name {
+    margin-right: 2rem;
+  }
+
   .user-info__input {
     width: calc(100% - 14rem);
   }
