@@ -44,7 +44,6 @@ function renderLanguage() {
   languageDOM.languages.forEach(node => {
     if (node.dataset.lang === language) {
       node.classList.add('active');
-      console.log(node, 'active');
     } else {
       node.classList.remove('active');
     }
