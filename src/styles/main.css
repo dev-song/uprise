@@ -48,6 +48,14 @@ header {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.language-select__ko::after {
+  content: '국어';
+}
+
+.language-select__en::after {
+  content: 'glish';
+}
+
 .language-select > .active,
 .language-select > li:hover {
   background: rgba(255, 255, 255, 0.8);
@@ -117,7 +125,7 @@ header {
 }
 
 .user-info__name {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .user-info__input {
@@ -221,24 +229,29 @@ header {
   text-align: left;
 }
 
+.todo-list__item-content {
+  width: calc(100% - 2.5rem);
+  margin: 0 0 2rem;
+}
+
 .todo-list__item > button {
   position: absolute;
-  top: 50%;
   width: 2.5rem;
   padding: 0.2rem 0.5rem;
-
-  transform: translateY(-50%);
 }
 
 .todo-list__change-left {
-  right: 6rem;
+  bottom: 0.5rem;
+  right: 3rem;
 }
 
 .todo-list__change-right,
 .todo-list__done .todo-list__change-left {
-  right: 3.5rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
 }
 
 .todo-list__delete {
+  top: 0.5rem;
   right: 0.5rem;
 }

@@ -8,6 +8,7 @@ const todoListDOM = {
 };
 const todoListClassNames = {
   item: 'todo-list__item',
+  content: 'todo-list__item-content',
   leftButton: 'todo-list__change-left',
   rightButton: 'todo-list__change-right',
   deleteButton: 'todo-list__delete'
@@ -47,7 +48,10 @@ function renderTodo() {
     div.classList.add(todoListClassNames.item);
     div.id = elm.id;
     div.dataset.type = elm.type;
-    div.textContent = elm.content;
+
+    const content = document.createElement('p');
+    content.classList.add(todoListClassNames.content);
+    content.textContent = elm.content;
 
     const leftButton = document.createElement('button');
     leftButton.classList.add(todoListClassNames.leftButton);
@@ -61,6 +65,7 @@ function renderTodo() {
     deleteButton.classList.add(todoListClassNames.deleteButton);
     deleteButton.textContent = '❌';
 
+    div.appendChild(content);
     div.appendChild(leftButton);
     div.appendChild(rightButton);
 

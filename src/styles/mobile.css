@@ -1,0 +1,51 @@
+@media (max-width: 960px) {
+  .user-info {
+    width: 60%;
+  }
+
+  .user-info__input {
+    width: calc(100% - 14rem);
+  }
+
+  .todo-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .todo-list__form {
+    grid-column: 1 / span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-info {
+    width: 80%;
+  }
+
+  .language-select > li {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .language-select__ko::after,
+  .language-select__en::after {
+    display: none;
+  }
+
+  .todo-list__form {
+    padding: 1rem 0.5rem;
+  }
+
+  .todo-list__input {
+    width: calc(100% - 5rem);
+    min-width: 8rem;
+    margin: auto;
+  }
+
+  .todo-list__todo {
+    padding: 1rem;
+  }
+
+  .todo-list__subtitle {
+    margin-bottom: 0.5rem;
+  }
+}
