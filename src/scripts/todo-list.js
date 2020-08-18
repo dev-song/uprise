@@ -119,7 +119,10 @@ function deleteTodo(id) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  addTodo(todoListDOM.input.value);
+  const todoInput = todoListDOM.input.value;
+  if (!todoInput) return;
+
+  addTodo(todoInput);
   todoListDOM.input.value = '';
   renderTodo();
 }
