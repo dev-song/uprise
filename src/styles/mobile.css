@@ -1,14 +1,27 @@
 @media (max-width: 960px) {
   .user-info {
     width: 60%;
+    padding: 0.5rem 1rem;
+  }
+
+  .user-info__greetings {
+    display: block;
   }
 
   .user-info__name {
-    margin-right: 2rem;
+    display: block;
+    margin-right: 0;
+  }
+
+  .user-info__name.hidden {
+    display: none;
   }
 
   .user-info__input {
-    width: calc(100% - 14rem);
+    width: 60%;
+    min-width: 12rem;
+    margin-right: 0;
+    padding-top: 0;
   }
 
   .todo-list {
@@ -18,13 +31,13 @@
   .todo-list__form {
     grid-column: 1 / span 1;
   }
+
+  .todo-list > div {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .user-info {
-    width: 80%;
-  }
-
   .language-select > li {
     margin-left: 0.5rem;
     padding: 0.5rem;
@@ -33,6 +46,14 @@
   .language-select__ko::after,
   .language-select__en::after {
     display: none;
+  }
+
+  .user-info {
+    width: 80%;
+  }
+
+  .user-info__input {
+    min-width: 9rem;
   }
 
   .todo-list__form {
